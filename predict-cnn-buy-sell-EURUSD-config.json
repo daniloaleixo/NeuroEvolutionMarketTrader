@@ -1,0 +1,134 @@
+{
+  "data": {
+    "filename": "EURUSD_30M-2004_01_01-2015-12-31.csv",
+    "test_file": "EURUSD-2017_01_01-2017_12_31.csv",
+    "technical_indicators": [
+      "SMA",
+      "KAMA",
+      "MIDPRICE",
+      "EMA",
+      "WMA",
+      "MOM",
+      "ROCP",
+      "TRIX",
+      "ATR",
+      "RSI",
+      "ADX",
+      "CCI",
+      "WILLR",
+      "CMO",
+      "AROONOSC"
+    ],
+    "intervals": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      9,
+      11,
+      13,
+      17,
+      21,
+      34,
+      41,
+      55,
+      77,
+      99
+    ],
+    "train_test_split": null,
+    "indexes": {
+      "train_start": "2003-05-05",
+      "train_end": "2019-01-01",
+      "test_start": "2018-12-31",
+      "test_end": "2020-12-01"
+    }
+  },
+  "model": {
+    "save_dir": "saved_models",
+    "pre_trained_model": "cnn-EURUSD_buy_sell_w10-ep500-2020_06_11.model",
+    "pre_trained_weights": "cnn-EURUSD_buy_sell_w10-ep500-2020_06_11.h5",
+    "generative_training": false,
+    "batch_size": 32,
+    "layers": [
+      {
+        "type": "Conv2D",
+        "neurons": 32,
+        "kernel_size": 3,
+        "strides": 1,
+        "padding": "same",
+        "use_bias": true
+      },
+      {
+        "type": "BatchNormalization"
+      },
+      {
+        "type": "MaxPool2D",
+        "pool_size": 2
+      },
+      {
+        "type": "dropout",
+        "rate": 0.5
+      },
+      {
+        "type": "Conv2D",
+        "neurons": 64,
+        "kernel_size": 3,
+        "strides": 1,
+        "padding": "same",
+        "use_bias": true
+      },
+      {
+        "type": "BatchNormalization"
+      },
+      {
+        "type": "MaxPool2D",
+        "pool_size": 2
+      },
+      {
+        "type": "dropout",
+        "rate": 0.5
+      },
+      {
+        "type": "flatten"
+      },
+      {
+        "type": "dense",
+        "neurons": 128
+      },
+      {
+        "type": "BatchNormalization"
+      },
+      {
+        "type": "dropout",
+        "rate": 0.5
+      },
+      {
+        "type": "dense",
+        "neurons": 64
+      },
+      {
+        "type": "BatchNormalization"
+      },
+      {
+        "type": "dropout",
+        "rate": 0.5
+      },
+      {
+        "type": "dense",
+        "neurons": 3,
+        "activation": "softmax"
+      }
+    ],
+    "epochs": 200,
+    "lr": 0.001,
+    "optimizer": "adam",
+    "loss": "sparse_categorical_crossentropy",
+    "metrics": [
+      "accuracy",
+      "f1_score",
+      "precision",
+      "recall"
+    ]
+  }
+}
