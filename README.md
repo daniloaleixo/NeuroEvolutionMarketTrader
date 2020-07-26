@@ -19,28 +19,28 @@ The agent has the following characteristics:
 
 
 ## Results
-Right now the best agent [v3.0141](), the agent uses OHLC, RSI and MACD inputs, as well as the output of a pretrained CNN buy and sell classifier. 
+Right now the best agent [v3.0141](https://github.com/daniloaleixo/NeuroEvolutionMarketTrader#runinfo-v30141---ohlc--cnn-classifier-bs-w10-15x15--rsimacd), the agent uses OHLC, RSI and MACD inputs, as well as the output of a pretrained CNN buy and sell classifier. 
 The agent has these results applied to EURUSD with 30M candles:
 * Mean over backtest returns: **14.17%**
 * Points above buy and hold mean: **12.26%**
 * Winning Percent mean: **80%**
 
 ### Training
-![img]()
+![img](https://github.com/daniloaleixo/NeuroEvolutionMarketTrader/blob/master/images/Screenshot%20from%202020-07-25%2021-17-43.png)
 
 *Max fitness for each generation*
 
-![img]()
+![img](https://github.com/daniloaleixo/NeuroEvolutionMarketTrader/blob/master/images/Screenshot%20from%202020-07-25%2021-17-49.png)
 
 *Mean fitness for each generation*
 
 ### Backtesting
 #### 2016 15M candles
-![img]()
+![img](https://github.com/daniloaleixo/NeuroEvolutionMarketTrader/blob/master/images/Screenshot%20from%202020-07-25%2022-20-36.png)
 #### 2017 30M candles
-![img]()
+![img](https://github.com/daniloaleixo/NeuroEvolutionMarketTrader/blob/master/images/Screenshot%20from%202020-07-25%2021-27-19.png)
 #### 2018 30M candles
-![img]()
+![img](https://github.com/daniloaleixo/NeuroEvolutionMarketTrader/blob/master/images/Screenshot%20from%202020-07-25%2021-27-51.png)
 
 ### RUNINFO: v3.0141 - OHLC + CNN Classifier B/S w10 15x15 + RSI&MACD
 ##### Params 
