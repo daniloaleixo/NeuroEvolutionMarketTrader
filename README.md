@@ -17,6 +17,16 @@ The agent has the following characteristics:
 * Generates RSI and MACD technical indicators to be used as parameters
 * Also run through a pretrained CNN buy and sell classifier to get the last set of parameters  
 
+## Running 
+```
+# Building notebook
+docker build -t my-notebook -f docker/Dockerfile .
+
+# Running notebook
+docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work my-notebook
+```
+
+
 
 ## Results
 Right now the best agent [v3.0141](https://github.com/daniloaleixo/NeuroEvolutionMarketTrader#runinfo-v30141---ohlc--cnn-classifier-bs-w10-15x15--rsimacd), the agent uses OHLC, RSI and MACD inputs, as well as the output of a pretrained CNN buy and sell classifier. 
