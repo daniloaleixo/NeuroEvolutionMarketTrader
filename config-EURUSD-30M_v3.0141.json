@@ -1,0 +1,126 @@
+{
+  "agent": {
+    "num_cols": 4,
+    "data": "data/duka/EURUSD_30M-2004_01_01-2015-12-31.csv",
+    "test_data": "data/duka/EURUSD-2018_01_01-2018_12_31.csv",
+    "normalise": false,
+    "detrend": true,
+    "cols": {
+      "Close": {
+        "detrend": true
+      },
+      "Open": {
+        "detrend": true
+      },
+      "High": {
+        "detrend": true
+      },
+      "Low": {
+        "detrend": true
+      },
+      "CNNClassifier_hold": {
+        "detrend": false
+      },
+      "CNNClassifier_buy": {
+        "detrend": false
+      },
+      "CNNClassifier_sell": {
+        "detrend": false
+      }
+    },
+    "technical_indicators": [
+      "MACDhist",
+      "RSI"
+    ],
+    "intervals": [
+      3,
+      5,
+      9,
+      14
+    ],
+    "params": {
+      "env": "Market",
+      "population_size": 256,
+      "generations": 100,
+      "episodes": 10,
+      "mutation_variance": 0.005,
+      "survival_ratio": 0.15,
+      "both_parent_percentage": 0.8,
+      "one_parent_percentage": 0.1,
+      "reward_function": "SimpleProfit",
+      "initial_cash": 5.0,
+      "profit_window_size": 100,
+      "max_env_steps": 500,
+      "max_possible_holdings": 10,
+      "close_col": 0,
+      "large_holdings_penalty": 0,
+      "no_trades_penalty": -1e2,
+      "lost_all_cash_penalty": -1e2,
+      "inaction_penalty": 0,
+      "close_padding": 0
+    },
+    "layers": [
+      16,
+      32,
+      64,
+      32,
+      16
+    ]
+  },
+  "model": {
+    "loss": "mse",
+    "generative_training": true,
+    "optimizer": "adam",
+    "save_dir": "saved_models",
+    "metrics": [],
+    "pre_trained_model": "cnn-EURUSD_buy_sell_w10-ep500-2020_06_11.model",
+    "pre_trained_weights": "cnn-EURUSD_buy_sell_w10-ep500-2020_06_11.h5",
+    "inputs": {
+      "technical_indicators": [
+        "SMA",
+        "KAMA",
+        "MIDPRICE",
+        "EMA",
+        "WMA",
+        "MOM",
+        "ROCP",
+        "TRIX",
+        "ATR",
+        "RSI",
+        "ADX",
+        "CCI",
+        "WILLR",
+        "CMO",
+        "AROONOSC"
+      ],
+      "intervals": [
+        2,
+        3,
+        4,
+        5,
+        7,
+        9,
+        11,
+        13,
+        17,
+        21,
+        34,
+        41,
+        55,
+        77,
+        99
+      ]
+    }
+  },
+  "backtesting": {
+    "initial_cash": 5.0,
+    "commission": 0,
+    "detrend": true,
+    "datapath": "data/eur-usd-historical-daily-data.csv",
+    "start_date": "2004-01-01",
+    "end_date": "2008-03-01",
+    "date_format": "%Y-%m-%d",
+    "date_col_name": "timestamp",
+    "type": "PPO"
+  }
+}
