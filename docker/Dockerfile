@@ -1,6 +1,5 @@
 
-FROM jupyter/scipy-notebook:latest
-
+FROM jupyter/scipy-notebook:ubuntu-18.04
 ENV GRANT_SUDO yes
 USER root
 
