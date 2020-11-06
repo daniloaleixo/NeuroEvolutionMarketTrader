@@ -5,6 +5,7 @@
     "test_data": "data/duka/EURUSD-2018_01_01-2018_12_31.csv",
     "normalise": false,
     "detrend": true,
+    "best_agent": "saved_models/DeepNeuro_Gen_best_100.pkl",
     "cols": {
       "Close": {
         "detrend": true
