@@ -121,6 +121,7 @@ The agent has these results applied to EURUSD with 30M candles:
     * Sortino Ratio 					 -2.8040
 
 ## Next Steps
+* [x] Develop an API
 * [ ] Develop a training API
 * [ ] Use socket inside API
 * [ ] Develop a front end to visualize the training
