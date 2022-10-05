@@ -13,7 +13,9 @@ RUN pip install keras==2.2.4
 RUN pip install tensorflow==1.15
 RUN pip install TA-lib
 RUN pip install gym && pip install keras_metrics && pip install backtrader
+RUN pip install jupyter_server && pip install --upgrade numpy
 
 EXPOSE 8888
+EXPOSE 6006
 
-ENTRYPOINT ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root"]
+# ENTRYPOINT ["jupyter", "lab", "--ip=0.0.0.0", "--allow-root"]

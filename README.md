@@ -26,8 +26,14 @@ The agent has the following characteristics:
 docker build -t my-notebook -f docker/Dockerfile .
 
 # Running notebook
-docker run --rm -p 8888:8888 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work my-notebook
+docker run --rm -p 8888:8888 -p 6006:6006 -e JUPYTER_ENABLE_LAB=yes -v "$PWD":/home/jovyan/work my-notebook
+
+# Optional: Tensorboard
+docker exec -it <container_id> /bin/bash
+tensorboard --logdir work/GA/tensorboard_Market_v3.0141/
 ```
+
+
 
 
 
